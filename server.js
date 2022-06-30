@@ -27,7 +27,7 @@ app.use(express.json())
 app.use(cors())
 
 app.get('/', (request, response) => {
-    response.send("Birds")
+    response.render('index.ejs')
 })
 
 app.get('/api/:birdSearch', (request, response) => {
