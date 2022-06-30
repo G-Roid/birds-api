@@ -5,17 +5,29 @@ const MongoClient = require('mongodb').MongoClient
 require('dotenv').config()
 const PORT = 8000
 
-// let db,
-//     dbConnectionString = process.env.DB_STRING,
-//     dbName = 'sample_mflix',
-//     collection
+let db,
+    dbConnectionString = process.env.DB_STRING,
+    dbName = 'birdsDatabase',
+    collection
 
-// MongoClient.connect(dbConnectionString)
-//     .then(client => {
-//         console.log(`Connected to Database`)
-//         db = client.db(dbName)
-//         collection = db.collection('movies')
-//     })
+MongoClient.connect(dbConnectionString)
+    .then(client => {
+        db = client.db(dbName)
+        collection = db.collection("birds")
+        console.log(`connected to database ${dbName}`)
+    })
+    .catch(error => console.error(error))
+
+const birdCollection = {
+    magpie: {
+        name: "magpie",
+        ability: "pecker"
+    },
+    dove: {
+        name: "dove",
+        ability: "sea bird"
+    }
+}
 
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
@@ -24,8 +36,31 @@ app.use(express.json())
 app.use(cors())
 
 app.get('/', (request, response) => {
-    response.send("welcome to the jungle")
+    response.send("Birds")
 })
+
+app.get('/api/:birdSearch', (request, response) => {
+    const bird = request.params.birdSearch
+    collection.find({birdName: bird}).toArray()
+    .then(result => {
+        console.log(result)
+        response.json(result[0])
+    })
+    .catch(error => console.error(error))
+
+
+})
+
+// app.get('/api/:alienName', (request, response) => {
+//     const name = request.params.alienName.toLowerCase()
+//     infoCollection.find({speciesName: name}).toArray()
+//     .then(result => {
+//         console.log(result)
+//         response.json(result[0])
+//     })    
+//     .catch(error => console.error(error) )   
+// })
+
 
 app.listen(PORT, () => {
     console.log(`server running on port ${PORT}`)
