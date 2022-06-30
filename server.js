@@ -18,16 +18,7 @@ MongoClient.connect(dbConnectionString)
     })
     .catch(error => console.error(error))
 
-const birdCollection = {
-    magpie: {
-        name: "magpie",
-        ability: "pecker"
-    },
-    dove: {
-        name: "dove",
-        ability: "sea bird"
-    }
-}
+
 
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
@@ -47,19 +38,9 @@ app.get('/api/:birdSearch', (request, response) => {
         response.json(result[0])
     })
     .catch(error => console.error(error))
-
-
 })
 
-// app.get('/api/:alienName', (request, response) => {
-//     const name = request.params.alienName.toLowerCase()
-//     infoCollection.find({speciesName: name}).toArray()
-//     .then(result => {
-//         console.log(result)
-//         response.json(result[0])
-//     })    
-//     .catch(error => console.error(error) )   
-// })
+
 
 
 app.listen(PORT, () => {
