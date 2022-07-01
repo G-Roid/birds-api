@@ -30,6 +30,16 @@ app.get('/', (request, response) => {
     response.render('index.ejs')
 })
 
+app.get('/api/', (request, response) => {
+    
+    collection.find().toArray()
+    .then(result => {
+        console.log(result)
+        response.json(result)
+    })
+    .catch(error => console.error(error))
+})
+
 app.get('/api/:birdSearch', (request, response) => {
     const bird = request.params.birdSearch
     collection.find({birdName: bird}).toArray()
