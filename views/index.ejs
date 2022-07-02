@@ -8,10 +8,19 @@
     <title>Australian Birds</title>
 </head>
 <body>
+ 
+    <nav>
+        <h4>Menu</h4>
+        <ul>
+            <li><a href="/api/manager">Register New Bird</a></li>
+            <li><a href="/">Home</a></li>
+        </ul>
+    </nav>
+
     <h1>AUSTRALIAN BIRDS</h1> 
 
     <label for="birdName">Name:</label>
-    <input id="searchInput" type="text" placeholder="Species" name="birdName" autofocus>
+    <input id="searchInput" type="text" placeholder="Species" name="birdName" autocomplete="off">
     <button id="searchButton">SEARCH</button>
 
     <section id="displayArea">
@@ -25,6 +34,7 @@
     </section>
 
 
-    <script src="main.js"></script>
+    <script src="/main.js"></script>
+    <script src="/components.js"></script>
 </body>
 </html>

@@ -69,6 +69,30 @@ app.post('/api', (request, respons) => {
 
 })
 
+app.put('/updateEntry', (req,res) => {
+    console.log(req.body)
+    Object.keys(req.body).forEach(key => {
+        if (req.body[key] === null || req.body[key] === undefined || req.body[key] === '') {
+          delete req.body[key];
+        }
+      });
+    console.log(req.body)
+    db.collection('birds').findOneAndUpdate(
+        {birdName: req.body.birdName},
+        {
+            $set:  req.body  
+        },
+        // {
+        //     upsert: true
+        // }
+    )
+    .then(result => {
+        console.log(result)
+        res.json('Success')
+    })
+    .catch(error => console.error(error))
+})
+
 
 
 
