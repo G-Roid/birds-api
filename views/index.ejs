@@ -4,11 +4,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BIRDS - API</title>
+    <link rel="stylesheet" href="styles.css">
+    <title>Australian Birds</title>
 </head>
 <body>
-    <h1>Birds API</h1>
-    <p>please use heroku-trial-basic/api/{birdName}</p>
+    <h1>Australian Birds</h1> 
 
+    <label for="birdName">Name:</label>
+    <input id="searchInput" type="text" placeholder="SPECIES" name="birdName" autofocus>
+    <button id="searchButton">SEARCH</button>
+
+    <section id="displayArea">
+        <ul>
+            <li><span>Name: </span><span id='birdName'></span></li>
+            <li><span>Image: </span><span><img id='image' src="" alt=""></span></li>
+            <li><span>Scientific Name: </span><span id='scifiName'></span></li>
+            <li><span>Desciption: </span><p id='description'></p></li>
+        
+        </ul>
+    </section>
+
+
+    <script src="main.js"></script>
 </body>
 </html>
