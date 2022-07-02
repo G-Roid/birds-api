@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 const cors = require('cors')
+const { response } = require('express')
 const MongoClient = require('mongodb').MongoClient
 require('dotenv').config()
 const PORT = 8000
@@ -55,6 +56,20 @@ app.get('/api/:birdSearch', (request, response) => {
     })
     .catch(error => console.error(error))
 })
+
+app.post('/api', (request, respons) => {
+    console.log('post heard')
+    db.collection('birds').insertOne(
+        request.body
+    )
+    .then(result => {
+        console.log(result)
+        respons.redirect('/api/manager')
+    })
+
+})
+
+
 
 
 

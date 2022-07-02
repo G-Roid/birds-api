@@ -9,6 +9,7 @@ function searchForBird() {
             console.log(typeof response)
             console.log(response)
             return response.json()
+
         })
         .then(data => {
             console.log(data)
