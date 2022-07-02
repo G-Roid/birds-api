@@ -9,11 +9,20 @@
 </head>
 <body>
     <h1>Database - Manager</h1>
+
     <section class="column">
         <h2>New Bird</h2>
-        
-
+            <form action="/api" method="POST">
+                <input type="text" placeholder="Name" name="name">
+                <input type="text" placeholder="Image URL" name="image">
+                <input type="text" placeholder="Scientific Name" name="scifiName">
+                <textarea rows="5" cols="40" type="text" placeholder="Description" name="description"></textarea>
+                <button type="submit">SUBMIT NEW</button>
+                <!-- <button type="button" id="updateButton">UDPATE EXISTING</button> -->
+            </form>
     </section>
+
+
     <section class="column">
         <h2>Update Bird</h2>
         
