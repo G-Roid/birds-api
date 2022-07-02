@@ -40,6 +40,10 @@ app.get('/api/', (request, response) => {
     .catch(error => console.error(error))
 })
 
+app.get('/api/manager', (request, response) => {
+    response.render('manager.ejs')
+})
+
 app.get('/api/:birdSearch', (request, response) => {
     const bird = request.params.birdSearch
     collection.find({birdName: bird}).toArray()
