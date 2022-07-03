@@ -42,8 +42,12 @@
     
     
             <h3>CURRENT BIRDS</h3>
-            <ul class="aliens">
-                <li>a result</li>
+            <ul class="birds">
+                <% for(let i=0; i < info.length; i++) { %>
+                    <li class="birds">
+                        <span><%= info[i] %></span>
+                    </li>
+                <% } %>
             </ul>      
         </section>
     </section>

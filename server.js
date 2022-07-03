@@ -43,9 +43,22 @@ app.get('/api/', (request, response) => {
     .catch(error => console.error(error))
 })
 
+// app.get('/api/manager', (request, response) => {
+//     response.render('manager.ejs')
+// })
+
+
+
 app.get('/api/manager', (request, response) => {
-    response.render('manager.ejs')
+    let contents = db.collection('birds').find().toArray()
+        .then(data => {
+            let nameList = data.map(item => item.birdName)
+            console.log(nameList)
+            response.render('manager.ejs', {info: nameList})
+        })
+        .catch(error => console.log(error))
 })
+
 
 app.get('/api/:birdSearch', (request, response) => {
     const bird = request.params.birdSearch
