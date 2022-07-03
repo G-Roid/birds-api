@@ -93,6 +93,17 @@ app.put('/updateEntry', (req,res) => {
     .catch(error => console.error(error))
 })
 
+app.delete('/deleteEntry', (request, response) => {
+    db.collection('birds').deleteOne({birdName: request.body.birdName})
+    .then(result => {
+        console.log(result)
+        console.log('Entry Deleted')
+        response.json('Entry Deleted - JSON response')
+
+    })
+    .catch(error => console.error(error))
+
+})
 
 
 

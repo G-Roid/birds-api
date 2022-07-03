@@ -1,6 +1,7 @@
 console.log('manager loaded')
 
 document.querySelector('#updateButton').addEventListener('click', updateEntry)
+document.querySelector('#deleteButton').addEventListener('click', deleteEntry)
 
 async function updateEntry(){
     console.log('things got updated')
@@ -20,6 +21,25 @@ async function updateEntry(){
     location.reload()
 
     }catch(err){
+        console.log(err)
+    }
+}
+
+async function deleteEntry() {
+    console.log('delayte...')
+    const input = document.querySelector('#deleteInput')
+    try {
+        const respose = fetch('/deleteEntry', {
+            method: 'delete',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                birdName: input.value
+            })        
+        })
+        location.reload()
+        
+
+    } catch(err) {
         console.log(err)
     }
 }
