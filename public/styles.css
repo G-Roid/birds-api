@@ -22,10 +22,22 @@ nav {
 body {
     background: rgba(123, 178, 190, 1);
     padding: 1%;
-    background-image: url("/images/Oscar's Birds-logos.jpeg");
+    /* background-image: url("/images/Oscar's Birds-logos.jpeg"); */
     background-size:100vw;
     /* background-repeat: repeat; */
     /* background-position: center; */
+}
+
+main {
+        width:100vw;
+        height: 100vh;
+        background-image: url("/images/Oscar's Birds-logos.jpeg");
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+    
+        
+
 }
 
 
@@ -37,6 +49,12 @@ body {
      .column {
         flex-basis: 100%;
      }
+
+     .row > .column + .column {
+        margin-top: 20rem;
+     }
+
+    
 
 }
 

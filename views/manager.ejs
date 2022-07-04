@@ -19,39 +19,44 @@
         </ul>
     </nav>
 
-    <section class="row">
-        <section class="column">
-            <h2>ADD/UPDATE BIRD</h2>
-                <form action="/api" method="POST">
-                    <input type="text" placeholder="Name" name="birdName" autocomplete="off">
-                    <input type="text" placeholder="Image URL" name="image" autocomplete="off">
-                    <input type="text" placeholder="Scientific Name" name="scifiName" autocomplete="off">
-                    <textarea rows="5" cols="40" type="text" placeholder="Description" name="description" autocomplete="off"></textarea>
-                    <section>
-                        <button type="submit">SUBMIT NEW</button>
-                        <button type="button" id="updateButton">UDPATE EXISTING</button>
-                    </section>
-
-
-                </form>
-        </section>
-
-        <section class="column">
-            <h2>DELETE BIRD</h2>
-            <input type="text" placeholder='Bird to delete' name='deleteInput' id='deleteInput'>
-            <button id='deleteButton'>Delete</button>
+    <main>
+        <section class="row">
+            <section class="column">
+                <h2>ADD/UPDATE BIRD</h2>
+                    <form action="/api" method="POST">
+                        <input type="text" placeholder="Name" name="birdName" autocomplete="off">
+                        <input type="text" placeholder="Image URL" name="image" autocomplete="off">
+                        <input type="text" placeholder="Scientific Name" name="scifiName" autocomplete="off">
+                        <textarea rows="5" cols="40" type="text" placeholder="Description" name="description" autocomplete="off"></textarea>
+                        <section>
+                            <button type="submit">SUBMIT NEW</button>
+                            <button type="button" id="updateButton">UDPATE EXISTING</button>
+                        </section>
     
     
-            <h3>CURRENT BIRDS</h3>
-            <ul class="birds">
-                <% for(let i=0; i < info.length; i++) { %>
-                    <li class="birds">
-                        <span><%= info[i] %></span>
-                    </li>
-                <% } %>
-            </ul>      
+                    </form>
+            </section>
+    
+            <section class="column">
+                <h2>DELETE BIRD</h2>
+                <input type="text" placeholder='Bird to delete' name='deleteInput' id='deleteInput'>
+                <button id='deleteButton'>Delete</button>
+        
+        
+                <h3>CURRENT BIRDS</h3>
+                <ul class="birds">
+                    <% for(let i=0; i < info.length; i++) { %>
+                        <li class="birds">
+                            <span><%= info[i] %></span>
+                        </li>
+                    <% } %>
+                </ul>      
+            </section>
         </section>
-    </section>
+
+    </main>
+
+    
 
     <script src="/manager.js"></script>
 </body>

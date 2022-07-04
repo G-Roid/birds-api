@@ -10,30 +10,36 @@
 </head> 
 <body>
     <!-- <img src="/images/Oscar's Birds-logos.jpeg" alt=""> -->
- 
+    
+    
     <nav>
         <h4>Menu</h4>
         <ul>
             <li><a href="/"><i class="fa-solid fa-house-user"></i>Home</a></li>
-            <li><a href="/api/manager"><i class="fa-solid fa-upload"></i>Manager</a></li>
+            <li><a href="/api/manager"><i class="fa-solid fa-cloud-arrow-up"></i></i>Manager</a></li>
         </ul>
     </nav>
 
-    <h1>Oscar's Birds</h1> 
+    <main>
 
-    <label for="birdName">Name:</label>
-    <input id="searchInput" type="text" placeholder="Species" name="birdName" autocomplete="off">
-    <button id="searchButton">SEARCH</button>
+        <h1>Oscar's Birds<i class="fa-solid fa-dove"></i></h1> 
+    
+        <label for="birdName">Name:</label>
+        <input id="searchInput" type="text" placeholder="Species" name="birdName" autocomplete="off">
+        <button id="searchButton">SEARCH</button>
+    
+        <section id="displayArea">
+            <ul>
+                <li><span>Name: </span><span id='birdName'></span></li>
+                <li><span>Image: </span><span><img id='image' src="" alt=""></span></li>
+                <li><span>Scientific Name: </span><span id='scifiName'></span></li>
+                <li><span>Desciption: </span><p id='description'></p></li>
+            
+            </ul>
+        </section>
 
-    <section id="displayArea">
-        <ul>
-            <li><span>Name: </span><span id='birdName'></span></li>
-            <li><span>Image: </span><span><img id='image' src="" alt=""></span></li>
-            <li><span>Scientific Name: </span><span id='scifiName'></span></li>
-            <li><span>Desciption: </span><p id='description'></p></li>
-        
-        </ul>
-    </section>
+    </main>
+    
 
 
     <script src="/main.js"></script>
