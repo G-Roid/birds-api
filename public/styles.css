@@ -19,3 +19,24 @@ nav {
     border: 1px solid black;
 }
 
+body {
+    background: rgba(123, 178, 190, 1);
+    padding: 1%;
+    background-image: url("/images/Oscar's Birds-logos.jpeg");
+    background-size:100vw;
+    /* background-repeat: repeat; */
+    /* background-position: center; */
+}
+
+
+@media (max-width : 1200px) {
+    .row {
+        display: flex;
+        flex-direction: column;
+     }
+     .column {
+        flex-basis: 100%;
+     }
+
+}
+
