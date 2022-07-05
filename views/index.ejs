@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles.css">
     <script src="https://kit.fontawesome.com/0d0fc5b67b.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik+Moonrocks&display=swap" rel="stylesheet">
     <title>Oscar's Birds</title>
 </head> 
 <body  class='layered-image'>
@@ -29,20 +32,20 @@
 
     </section>
 
-    <main >
+    <main>
 
-        <h1>Oscar's Birds<i class="fa-solid fa-dove"></i></h1> 
+        <!-- <h1>Oscar's Birds<i class="fa-solid fa-dove"></i></h1>  -->
     
-        <label for="birdName">Name:</label>
+        <!-- <label for="birdName">Name:</label> -->
         <input id="searchInput" type="text" placeholder="Species" name="birdName" autocomplete="off">
         <button id="searchButton">SEARCH</button>
     
         <section id="displayArea">
             <ul>
-                <li><span>Name: </span><span id='birdName'></span></li>
-                <li><span>Image: </span><span><img id='image' src="" alt=""></span></li>
-                <li><span>Scientific Name: </span><span id='scifiName'></span></li>
-                <li><span>Desciption: </span><p id='description'></p></li>
+                <li class="stack"><span class="resultLabel">Name: </span><span id='birdName'></span></li>                 
+                <li class="stack"><span>Scientific Name: </span><span id='scifiName'></span></li>
+                <li id="descriptionListItem"><span>Desciption: </span><p id='description'></p></li>
+                <li id="imageListItem"><span>Image: </span><span><img id='image' src="" alt=""></span></li>
             
             </ul>
         </section>
