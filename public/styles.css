@@ -17,6 +17,13 @@ input {
 
 nav {
     border: 1px solid black;
+    display: flex;
+}
+
+ul {
+    display: flex;
+    justify-content: stretch;
+    flex-basis: 80;
 }
 
 body {
