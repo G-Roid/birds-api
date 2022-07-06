@@ -1,3 +1,9 @@
+window.addEventListener('DOMContentLoaded', (event) => {
+    console.log('DOM fully loaded and parsed');
+    getBirds()
+});
+
+
 console.log('manager loaded')
 
 document.querySelector('#updateButton').addEventListener('click', updateEntry)
@@ -27,7 +33,8 @@ async function updateEntry(){
 
 async function deleteEntry() {
     console.log('delayte...')
-    const input = document.querySelector('#deleteInput')
+    // const input = document.querySelector('#deleteInput')
+    const input = document.querySelector('#birdSelect')
     try {
         const respose = fetch('/deleteEntry', {
             method: 'delete',
@@ -41,5 +48,31 @@ async function deleteEntry() {
 
     } catch(err) {
         console.log(err)
+    }
+}
+
+
+async function getBirds() {
+    try {        
+        const response = await fetch(`https://bird-api-aus.herokuapp.com/api`)
+        const data = await response.json()
+
+        console.log(Object.keys(data).length)
+        
+
+        for (key in data) {   
+            // console.log(data[key].birdName)
+            let newOption = document.createElement('option')
+
+            let optionText = document.createTextNode(`${data[key].birdName}`)      
+            newOption.appendChild(optionText) 
+    
+
+            document.querySelector('#birdSelect').appendChild(newOption) 
+            console.log(newOption)        
+        }
+
+    } catch(error) {
+        console.error(error)
     }
 }
