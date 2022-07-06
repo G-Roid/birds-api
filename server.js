@@ -62,7 +62,7 @@ app.get('/api/manager', (request, response) => {
 
 app.get('/api/:birdSearch', (request, response) => {
     const bird = request.params.birdSearch
-    collection.find({birdName: bird}).toArray()
+    collection.find({birdName: bird.toLowerCase()}).toArray()
     .then(result => {
         console.log(result)
         response.json(result[0])

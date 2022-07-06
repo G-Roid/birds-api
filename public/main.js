@@ -2,7 +2,7 @@
 document.querySelector('#searchButton').addEventListener('click', searchForBird)
 
 function searchForBird() {
-    const bird = document.querySelector('#searchInput').value
+    const bird = String(document.querySelector('#searchInput').value).toLowerCase()
     console.log(bird)
     fetch(`https://bird-api-aus.herokuapp.com/api/${bird}`)
         .then(response => {
@@ -13,12 +13,12 @@ function searchForBird() {
         })
         .then(data => {
             console.log(data)
-            document.querySelector('#birdName').textContent = data.birdName
+
+            document.querySelector('#birdName').textContent = capitalizeFirstLetter(data.birdName)
             document.querySelector('#image').setAttribute('src', data.image)
             document.querySelector('#scifiName').textContent = data.scifiName
             document.querySelector('#description').textContent = data.description
-
-            
+     
 
             document.querySelector('#searchInput').value  = ''
 
@@ -26,3 +26,8 @@ function searchForBird() {
         })
         
 }
+
+
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
