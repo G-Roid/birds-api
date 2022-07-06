@@ -102,7 +102,7 @@ a {
   }
 
   .logo img {
-    width: 30%;
+    width: 60%;
   }
 
   #displayArea {
@@ -132,7 +132,7 @@ a {
   }
 
 
-  section ul li :first-child {
+  section ul li :first-child, h2 {
     font-family: 'Rubik Moonrocks', cursive;
     color: rgb(0, 131, 246);
     font-size: 1.5rem;
