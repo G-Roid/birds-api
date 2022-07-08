@@ -1,10 +1,15 @@
+require('dotenv').config()
 const express = require('express')
 const app = express()
 const cors = require('cors')
-const { response } = require('express')
+// const { response } = require('express')
+const path = require("path");
 const MongoClient = require('mongodb').MongoClient
-require('dotenv').config()
 const PORT = 8000
+
+const { storage } = require('./storage/storage');
+const multer = require('multer');
+const upload = multer({ storage });
 
 
 
@@ -117,6 +122,14 @@ app.delete('/deleteEntry', (request, response) => {
     .catch(error => console.error(error))
 
 })
+
+//we used upload.single to tell "multer" to upload
+// only single image 
+app.post('/upload', upload.single('image'), (req, res) => {
+    console.log(req.file);
+    res.send('Done');
+});
+
 
 
 
