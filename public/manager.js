@@ -1,3 +1,5 @@
+let imagePath;
+
 window.addEventListener('DOMContentLoaded', (event) => {
     console.log('DOM fully loaded and parsed');
     getBirds()
@@ -8,6 +10,7 @@ console.log('manager loaded')
 
 document.querySelector('#updateButton').addEventListener('click', updateEntry)
 document.querySelector('#deleteButton').addEventListener('click', deleteEntry)
+document.querySelector('#birdImage').addEventListener('input', imageSelected)
 
 
 async function updateEntry(){
@@ -91,7 +94,28 @@ async function getBirds() {
         location.reload()
     
         } catch(err) {
-
+            console.log(err)
         } 
     }
 }
+
+async function imageSelected() { 
+    try {
+        console.log('an image has been uplaoded!!')
+        const form = document.querySelector('#imageForm')
+        let response = form.submit()
+
+
+        // const response = await fetch('/currentImage')
+        // const data = await response.json()
+        // console.log(data)        
+
+    } catch(err) {
+        console.log('err')
+    }
+
+}
+
+// document.querySelector('#uploadImageButton').addEventListener('click', () => {
+//     console.log('button pressed')
+// })

@@ -125,13 +125,16 @@ app.delete('/deleteEntry', (request, response) => {
 
 //we used upload.single to tell "multer" to upload
 // only single image 
+let currentImage
 app.post('/upload', upload.single('image'), (req, res) => {
     console.log(req.file);
-    res.send('Done');
+    currentImage = req.file.path
+    res.redirect('/api/manager')
 });
 
-
-
+app.get('/currentImage', (req, res) => {
+    res.json(currentImage)
+})
 
 
 app.listen(process.env.PORT || PORT, ()=>{
